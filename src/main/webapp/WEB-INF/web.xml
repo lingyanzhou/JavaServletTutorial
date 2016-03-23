@@ -27,10 +27,6 @@
     <context-param>
       <param-name>webmaster</param-name>
       <param-value>myaddress@mycompany.com</param-value>
-      <description>
-        The EMAIL address of the administrator to whom questions
-        and comments about this application should be addressed.
-      </description>
     </context-param>
 
 
@@ -58,11 +54,12 @@
 
          You can define any number of servlets, including zero.
     -->
-
+<!--
     <servlet>
       <servlet-name>helloworld</servlet-name>
       <servlet-class>HelloWorld</servlet-class>
     </servlet>
+    -->
 
 
     <!-- Define mappings that are used by the servlet container to
@@ -82,11 +79,12 @@
          It is also legal to define more than one mapping for the same
          servlet, if you wish to.
     -->
-
+<!--
     <servlet-mapping>
       <servlet-name>helloworld</servlet-name>
       <url-pattern>/helloworld</url-pattern>
     </servlet-mapping>
+    -->
 
 
 

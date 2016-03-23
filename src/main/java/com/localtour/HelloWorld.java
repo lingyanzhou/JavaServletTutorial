@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "HelloWorld", urlPatterns = {"/HelloWorld"})
+@WebServlet("/HelloWorld")
 public class HelloWorld extends HttpServlet {
 
     /**
@@ -34,6 +34,7 @@ public class HelloWorld extends HttpServlet {
             out.println("<tr>");
             out.println("<td>");
         	out.println(paraName);
+        	out.println();
             out.println("</td>");
             out.println("<td>");
         	out.println(request.getParameter(paraName));
