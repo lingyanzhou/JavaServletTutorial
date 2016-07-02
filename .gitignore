@@ -1,0 +1,7 @@
+.project
+.git
+.settings
+.svn
+target
+.class
+.classpath
