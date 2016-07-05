@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <ui:insert name="title">
+      <title>Error Template</title>
+    </ui:insert>
+    <h:outputStylesheet library="main" name="css/style.css" /> 
+  </h:head>
+  <h:body>
+    <p:layout fullPage="true">
+      <p:layoutUnit position="center">
+        <div id="lz-error-header">
+          <h1>
+            <ui:insert name="header">
+              Error Title
+            </ui:insert>
+          </h1>
+        </div>
+
+        <div id="lz-error-subheader">
+          <h2>
+            <ui:insert name="subheader">
+              Error Subtitle
+            </ui:insert>
+          </h2>
+        </div>
+        
+        <div id="lz-error-detail">
+          <ui:insert name="detail">
+            Error Detail
+          </ui:insert>
+        </div>
+
+      </p:layoutUnit>
+
+      <p:layoutUnit position="south">
+        <div id="footer_container">
+          <ui:insert name="footer">
+            <ui:include src="../composite/footer.xml" />
+          </ui:insert>
+        </div>
+      </p:layoutUnit>
+    </p:layout>
+
+  </h:body>
+
+</html>

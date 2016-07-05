@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui">
+  <head>
+    <title>
+      Server Error
+    </title>
+  </head>
+  <body>
+    <ui:composition template="./template/error-template.xml">
+      <ui:define name="title">
+        <title>Server Error</title>
+      </ui:define>
+      <ui:define name="header">
+        #{errorBean.statusCode}
+      </ui:define>
+      <ui:define name="subheader">
+        #{errorBean.exceptionType}
+      </ui:define>
+      <ui:define name="detail">
+        <p>
+          <h:outputText value="Request URI : #{errorBean.requestURI}"></h:outputText>
+          <br />
+        </p>
+
+        <p>
+
+          <h:outputText value="Error Code: #{errorBean.statusCode}"></h:outputText>
+          <br />
+        </p>
+
+        <p>
+          <h:outputText value="Error Desscription: #{errorBean.message}"></h:outputText>
+          <br />
+        </p>
+
+        <p>
+          <h:outputText value="Exception Type: #{errorBean.exceptionType}"></h:outputText>
+          <br />
+        </p>
+
+        <p>
+          <h:outputText value="Servlet Name: #{errorBean.servletName}"></h:outputText>
+          <br />
+        </p>
+
+        <p>
+          <pre>
+            <h:outputText value="Exception Stack Trace: #{errorBean.stackTrace}"></h:outputText>
+          </pre>
+        </p>
+
+      </ui:define>
+    </ui:composition>
+  </body>
+</html>

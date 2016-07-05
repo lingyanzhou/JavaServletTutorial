@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
+
+  <head>
+    <title>JSF 2.0 Error Generator</title>
+  </head>
+  <body>
+    <ui:composition template="./template/template.xml">
+      <ui:define name="title">
+        <title>Error Generator</title>
+      </ui:define>
+
+      <ui:define name="body">
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <h:form>
+          <p:outputLabel for="exceptionSelector" value="Exception Type:" />
+          <p:selectOneListbox id="exceptionSelector" value="#{exceptionGeneratorBean.exceptionName}">
+            <f:selectItems value="#{exceptionGeneratorBean.exceptionNames}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
+            <f:ajax execute="exceptionSelector"/>
+          </p:selectOneListbox>
+          <br />
+
+          <h:commandButton value="Submit" type="submit" />
+
+          <br />
+
+          <h:commandButton value="Test Ajax Listener Error">
+            <f:ajax listener="#{exceptionGeneratorBean.listenerException}" render=""/>
+          </h:commandButton>
+
+          <br />
+
+          <h:commandButton value="Test Action Error" action="#{exceptionGeneratorBean.actionException}"></h:commandButton>
+
+          <br />
+          <!--<h:outputText id="output" value="Welcom, #{helloBean.name}"></h:outputText>-->
+        </h:form>
+        <p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+        <p:ajaxExceptionHandler type="java.lang.Throwable"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:dialog id="exceptionDialog" header="Exception '#{pfExceptionHandler.type}' occured!" widgetVar="exceptionDialog"
+                                                                                                height="500px">
+        Message: #{pfExceptionHandler.message} <br/>
+        StackTrace: <h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" /> <br />
+
+        <p:button onclick="document.location.href = document.location.href;"
+                  value="Reload!"
+                  rendered="#{pfExceptionHandler.type == 'javax.faces.application.ViewExpiredException'}" />
+        </p:dialog>
+      </ui:define>
+    </ui:composition>
+
+  </body>
+</html>

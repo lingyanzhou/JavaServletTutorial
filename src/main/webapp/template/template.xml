@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
+
+  <h:head>
+    <ui:insert name="title">
+      <title>Template</title>
+    </ui:insert>
+    <h:outputStylesheet library="main" name="css/style.css" /> 
+  </h:head>
+  <h:body>
+    <div id="main_container">
+      <p:layout fullPage="true">
+        <p:layoutUnit position="north">
+          <div id="header_container">
+            <ui:insert name="header">
+              <ui:include src="../composite/header.xml" />
+            </ui:insert>
+          </div>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center">
+          <div id="body_container">
+            <ui:insert name="body">
+              Template Body
+            </ui:insert>
+          </div>
+
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south">
+          <div id="footer_container">
+            <ui:insert name="footer">
+              <ui:include src="../composite/footer.xml" />
+            </ui:insert>
+          </div>
+        </p:layoutUnit>
+      </p:layout>
+    </div>
+  </h:body>
+</html>

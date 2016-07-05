@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
+
+  <head>
+    <title>Header
+    </title>
+  </head>
+  <body>
+    <ui:composition>
+      <h:form>  
+        <p:growl id="messages"/>
+
+        <p:menubar>
+          <p:menuitem value="Welcome" url="/index.xhtml" icon="ui-icon-home" />
+          <p:submenu label="Testing" icon="ui-icon-wrench" >
+            <p:menuitem value="JSF Exception" url="/error-generator.xhtml" icon="ui-icon-notice" />
+            <p:menuitem value="Servlet Exception" url="/err-gen-servlet.xhtml" icon="ui-icon-notice" />
+          </p:submenu>
+          <p:submenu label="JSF Resources" icon="ui-icon-star" >
+            <p:menuitem value="TutorialPoint" url="http://www.tutorialspoint.com/jsf/index.htm" icon="ui-icon-star" />
+            <p:menuitem value="Mkyong" url="http://www.mkyong.com/tutorials/jsf-2-0-tutorials/" icon="ui-icon-star" />
+            <p:menuitem value="JQuery Icon" url="https://api.jqueryui.com/theming/icons/" icon="ui-icon-star" />
+          </p:submenu>
+
+          <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+          </f:facet>
+        </p:menubar>
+      </h:form>
+    </ui:composition>
+  </body>
+</html>
